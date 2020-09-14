@@ -110,6 +110,7 @@ export const supportedPools = [
     tokenSymbol: 'SASHIMI',
     icon: '🍣',
     pool: '17.7%',
+    uniswapLPUrl: 'https://uniswap.info/pair/0x4b618087dae7765823bc47ffbf38c8ee8489f5ca',
   },
   {
     pid: 10,
@@ -126,6 +127,7 @@ export const supportedPools = [
     tokenSymbol: 'SASHIMI',
     icon: '🍱',
     pool: '17.7%',
+    uniswapLPUrl: 'https://uniswap.info/pair/0x1629b0259e6e5c315b8eea09fd1a4d0a26291f98',
   },
   {
     pid: 7,
@@ -142,6 +144,7 @@ export const supportedPools = [
     tokenSymbol: 'ELF',
     icon: '🧝',
     pool: '15.4%',
+    uniswapLPUrl: 'https://uniswap.info/pair/0xa6be7f7c6c454b364cda446ea39be9e5e4369de8',
   },
   {
     pid: 8,
@@ -158,6 +161,7 @@ export const supportedPools = [
     tokenSymbol: 'WBTC',
     icon: '₿',
     pool: '7.7%',
+    uniswapLPUrl: 'https://uniswap.info/pair/0xbb2b8038a1640196fbe3e38816f3e67cba72d940',
   },
 
   // Others
@@ -176,6 +180,7 @@ export const supportedPools = [
     tokenSymbol: 'USDT',
     icon: '🐢',
     pool: '7.7%',
+    uniswapLPUrl: 'https://uniswap.info/pair/0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852',
   },
   {
     pid: 1,
@@ -192,6 +197,7 @@ export const supportedPools = [
     tokenSymbol: 'USDC',
     icon: '🐌',
     pool: '8.7%',
+    uniswapLPUrl: 'https://uniswap.info/pair/0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc',
   },
   {
     pid: 2,
@@ -208,6 +214,7 @@ export const supportedPools = [
     tokenSymbol: 'DAI',
     icon: '🦆',
     pool: '8.7%',
+    uniswapLPUrl: 'https://uniswap.info/pair/0xa478c2975ab1ea89e8196811f51a7b7ade33eb11',
   },
   {
     pid: 3,
@@ -224,6 +231,7 @@ export const supportedPools = [
     tokenSymbol: 'YFI',
     icon: '🐋',
     pool: '4.1%',
+    uniswapLPUrl: 'https://uniswap.info/pair/0x2fdbadf3c4d5a8666bc06645b8358ab803996e28',
   },
   {
     pid: 4,
@@ -240,6 +248,7 @@ export const supportedPools = [
     tokenSymbol: 'LEND',
     icon: '🐗',
     pool: '4.1%',
+    uniswapLPUrl: 'https://uniswap.info/pair/0xab3f9bf1d81ddb224a2014e98b238638824bcf20',
   },
   {
     pid: 5,
@@ -256,6 +265,7 @@ export const supportedPools = [
     tokenSymbol: 'LINK',
     icon: '🐸',
     pool: '4.1%',
+    uniswapLPUrl: 'https://uniswap.info/pair/0xa2107fa5b38d9bbd2c461d6edf11b11a50f6b974',
   },
   {
     pid: 6,
@@ -272,5 +282,6 @@ export const supportedPools = [
     tokenSymbol: 'SNX',
     icon: '🐍',
     pool: '4.1%',
+    uniswapLPUrl: 'https://uniswap.info/pair/0x43ae24960e5534731fc831386c07755a2dc33d47',
   },
 ]

@@ -187,18 +187,26 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
               <StyledDetail>Earn {farm.earnToken.toUpperCase()} ({farm.pool} Pool)</StyledDetail>
             </StyledDetails>
             <Spacer />
-            <Button
-              disabled={!poolActive}
-              text={poolActive ? 'Select' : undefined}
-              to={`/farms/${farm.id}`}
-            >
-              {!poolActive && (
-                <Countdown
-                  date={new Date(startTime * 1000)}
-                  renderer={renderer}
-                />
-              )}
-            </Button>
+            <ButtonContainer>
+              <Button
+                  disabled={!poolActive}
+                  text={poolActive ? 'Select' : undefined}
+                  to={`/farms/${farm.id}`}
+              >
+                {!poolActive && (
+                    <Countdown
+                        date={new Date(startTime * 1000)}
+                        renderer={renderer}
+                    />
+                )}
+              </Button>
+              &nbsp;&nbsp;&nbsp;
+              <Button
+                  text="GET LP"
+                  href={farm.uniswapLPUrl}
+              >
+              </Button>
+            </ButtonContainer>
             <StyledInsight>
               <span>APY</span>
               <span>
@@ -245,6 +253,12 @@ const ValueETH = styled.div`
   padding: 0;
   text-align: center;
   padding-bottom: ${(props) => props.theme.spacing[6]}px;
+`
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 `
 
 const StyledCardAccent = styled.div`
