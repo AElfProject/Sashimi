@@ -42,9 +42,9 @@ const Nav: React.FC = () => {
       {/*<StyledLink target="_blank" href={GITHUB}>*/}
       {/*  Github*/}
       {/*</StyledLink>*/}
-      {/*<StyledLink target="_blank" href="https://twitter.com/sushiswap">*/}
-      {/*  Twitter*/}
-      {/*</StyledLink>*/}
+      <StyledLink target="_blank" href="https://twitter.com/SASHIMISASHIMI5">
+        Twitter
+      </StyledLink>
     </StyledNav>
   )
 }

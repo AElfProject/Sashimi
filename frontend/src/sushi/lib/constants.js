@@ -106,7 +106,7 @@ export const supportedPools = [
       1: '0xC28E27870558cF22ADD83540d2126da2e4b464c2',
     },
     name: 'Sashimi Party!',
-    symbol: 'SASHIMI-WETH UNI-V2 LP',
+    symbol: 'SASHIMI-ETH UNI-V2 LP',
     tokenSymbol: 'SASHIMI',
     icon: '🍣',
     pool: '17.7%',

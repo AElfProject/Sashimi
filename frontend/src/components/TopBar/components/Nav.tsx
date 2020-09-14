@@ -17,6 +17,12 @@ const Nav: React.FC = () => {
       {/*>*/}
       {/*  About*/}
       {/*</StyledAbsoluteLink>*/}
+      <StyledAbsoluteLink
+        href="https://snapshot.sashimi.cool/#/sashimi"
+        target="_blank"
+      >
+          Proposals
+      </StyledAbsoluteLink>
     </StyledNav>
   )
 }

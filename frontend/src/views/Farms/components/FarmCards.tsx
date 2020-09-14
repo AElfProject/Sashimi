@@ -47,19 +47,45 @@ const FarmCards: React.FC = () => {
   // TODO: After block height xxxx, SUSHI_PER_BLOCK = 100;
   const SASHIMI_PER_BLOCK = new BigNumber(1000)
 
+  let ethValueInSashimi = new BigNumber(0);
+  let ethValueInSashimiNoWeight = new BigNumber(0);
   const rows = farms.reduce<FarmWithStakedValue[][]>(
     (farmRows, farm, i) => {
-      const farmWithStakedValue = {
+
+      // TODO: Better code to get weth value of tokenNotEth-tokenNotEth
+      if (stakedValue[i] && farm.pid !== 10) {
+        ethValueInSashimi = ethValueInSashimi.plus(stakedValue[i].poolWeight.times(stakedValue[i].totalWethValue));
+        ethValueInSashimiNoWeight = ethValueInSashimiNoWeight.plus(stakedValue[i].totalWethValue);
+      }
+
+      let farmWithStakedValue = {
         ...farm,
         ...stakedValue[i],
         apy: stakedValue[i]
-          ? sushiPrice
-              .times(SASHIMI_PER_BLOCK)
-              .times(BLOCKS_PER_YEAR)
-              .times(stakedValue[i].poolWeight)
-              .div(stakedValue[i].totalWethValue)
-          : null,
+            ? sushiPrice
+                .times(SASHIMI_PER_BLOCK)
+                .times(BLOCKS_PER_YEAR)
+                .times(stakedValue[i].poolWeight)
+                .div(stakedValue[i].totalWethValue)
+            : null,
       }
+
+      if (stakedValue[i] && farm.pid === 10 && stakedValue[i].totalWethValue.toNumber() === 0) {
+        const sashimiElfWethValue = stakedValue[i].tokenAmount.times(sushiPrice).times(new BigNumber(2));
+        ethValueInSashimiNoWeight = ethValueInSashimiNoWeight.plus(sashimiElfWethValue);
+        farmWithStakedValue = {
+          ...farm,
+          ...stakedValue[i],
+          apy: stakedValue[i]
+              ? sushiPrice
+                  .times(SASHIMI_PER_BLOCK)
+                  .times(BLOCKS_PER_YEAR)
+                  .times(stakedValue[i].poolWeight)
+                  .div(sashimiElfWethValue)
+              : null,
+        }
+      }
+
       const newFarmRows = [...farmRows]
       if (newFarmRows[newFarmRows.length - 1].length === 3) {
         newFarmRows.push([farmWithStakedValue])
@@ -73,6 +99,7 @@ const FarmCards: React.FC = () => {
 
   return (
     <StyledCards>
+      <ValueETH>{ethValueInSashimiNoWeight.toNumber().toFixed(2)} WETH valued assets are making Sashimi</ValueETH>
       {!!rows[0].length ? (
         rows.map((farmRow, i) => (
           <StyledRow key={i}>
@@ -208,6 +235,16 @@ const RainbowLight = keyframes`
 	100% {
 		background-position: 0% 50%;
 	}
+`
+
+const ValueETH = styled.div`
+  color: #aa9585;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  padding-bottom: ${(props) => props.theme.spacing[6]}px;
 `
 
 const StyledCardAccent = styled.div`
